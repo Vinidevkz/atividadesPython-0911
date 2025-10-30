@@ -22,7 +22,7 @@ while numsTentativas < 3:
 
         if validated:
             print("Usuario logado com sucesso.")
-            numsTentativas += 10
+            break
         else:
             numsTentativas += 1
     except Exception as e:
