@@ -1,14 +1,14 @@
 def verificarSenha(senha):
-    if "@" or "!" or "#" or "$" in senha:
-        if int in senha:
-            if len(senha) >= 10:
-                print("Senha válida criada com sucesso!")
-                return True
+
+    if any(c in senha for c in ["@", "!", "#", "$"]):
+        if len(senha) >= 10:
+            print("Senha válida criada com sucesso.")
+            return True
         else:
-            print("A senha precisa conter numeros inteiros.")
+            print("A senha precisa ter pelo menos 10 caracteres.")
             return False
     else:
-        print("A senha precisa ter algum caractere especial.")
+        print("A senha precisa ter pelo menos um caractere especial (@, !, # ou $).")
         return False
 
 
@@ -21,12 +21,7 @@ while i < 1:
         validated = verificarSenha(senhaUser)
 
         if validated:
-            print("Senha criada com sucesso")
+            i += 1
 
-    except:
-        print("Houve um erro, tente novamente mais tarde.")
-
-
-
-
-
+    except Exception as e:
+        print(f"Houve um erro: {e}")
